@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+apicache-py3
+throttle.ctrl
+*.pyc
