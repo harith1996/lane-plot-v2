@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css';
+import "./App.css";
+import DataFilters from "./components/DataFilters/DataFilters";
+import LineChart from "./components/LineChart/LineChart";
+import Scatterplot from "./components/Scatterplot/Scatterplot";
+import SmallMultiple from "./components/SmallMultiple/SmallMultiple";
+import VisControls from "./components/VisControls/VisControls";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	return (
+		<>
+			<div className="user-controls">
+				<DataFilters />
+				<VisControls />
+			</div>
+			<div className="visualizations">
+				<div className="small-multiples">
+					{/* Small multiples for each dataset go here */}
+					{Array.from({ length: 4 }).map((_, i) => (
+						<div key={i}>
+							<SmallMultiple></SmallMultiple>
+						</div>
+					))}
+				</div>
+				<div className="detail-view">
+					{/* Detail view for selected dataset goes here */}
+					<Scatterplot />
+					<LineChart />
+				</div>
+			</div>
+		</>
+	);
 }
 
-export default App
+export default App;
