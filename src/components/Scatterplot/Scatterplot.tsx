@@ -57,7 +57,7 @@ export default function Scatterplot(props: ScatterplotProps) {
 		(svg) => {
 			const width = maxWidth;
 			const height = maxWidth;
-			const margin = { top: 20, right: 30, bottom: 80, left: 60 };
+			const margin = { top: 20, right: 30, bottom: 10, left: 30 };
 
 			// const [xDomain, yDomain] = getDomains(
 			// 	data,
